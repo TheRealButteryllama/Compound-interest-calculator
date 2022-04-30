@@ -7,16 +7,25 @@
     <title>Document</title>
   </head>
   <body>
-    <div>
-      <input id="dollarAmount" type="number" value="10000" />
-    </div>
-    <div>
-      <input id="interestRate" type="number" value=".15" />
-    </div>
-    <div>
-      <input id="time" type="number" value="5" />
-    </div>
-    <button id="calculate">Calculate</button>
+    <form id="form" action="/action_page.php">
+      <label for="dollarAmount">Dollar Amount:</label><br />
+      <input
+        type="number"
+        id="dollarAmount"
+        name="dollarAmount"
+        value="10000"
+      /><br />
+      <label for="interestRate">Interest Rate:</label><br />
+      <input
+        type="number"
+        id="interestRate"
+        name="interestRate"
+        value=".15"
+      /><br />
+      <label for="time">Years:</label><br />
+      <input type="number" id="time" name="time" value="5" /><br /><br />
+      <input type="submit" value="Submit" />
+    </form>
     <h1 id="output"></h1>
   </body>
 

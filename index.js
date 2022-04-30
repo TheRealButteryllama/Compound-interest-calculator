@@ -1,10 +1,6 @@
 console.log("it works!");
 
-let dollarAmount = document.getElementById("dollarAmount");
-let interestRate = document.getElementById("interestRate");
-let calculate = document.getElementById("calculate");
-let output = document.getElementById("output");
-let time = document.getElementById("time");
+let form = document.getElementById("form");
 
 function calculateInterest(money, interest, time) {
   for (x = 0; x < time; x++) {
@@ -14,14 +10,12 @@ function calculateInterest(money, interest, time) {
   return money;
 }
 
-// calculate.addEventListener("click", calculateInterest)
-
-calculate.addEventListener("click", function (e) {
-  console.log(dollarAmount.value);
-  console.log(interestRate.value);
-  let money = Number(dollarAmount.value);
-  let interest = Number(interestRate.value);
-  let years = Number(time.value);
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(e.target).entries());
+  let money = Number(data.dollarAmount);
+  let interest = Number(data.interestRate);
+  let years = Number(data.time);
   let result = calculateInterest(money, interest, years);
   output.innerHTML = result;
 });
